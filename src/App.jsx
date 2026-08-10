@@ -268,13 +268,30 @@ const FOOTER = {
   brand: "160 Recetas Fit",
   tagline: "Recetario digital en español",
   links: [
-    { label: "Política de reembolso", href: "#" },
-    { label: "Contacto", href: "#" },
-    { label: "Términos de uso", href: "#" },
+    { label: "Política de reembolso", href: "#politica-reembolso" },
+    { label: "Contacto", href: "#contacto" },
+    { label: "Términos de uso", href: "#terminos-de-uso" },
   ],
   copyright: "© 2026. Todos los derechos reservados.",
   legalNotice:
     "Este material tiene fines exclusivamente informativos y educativos. No constituye asesoría médica ni nutricional y no sustituye la consulta con un profesional de la salud. Los valores nutricionales son estimaciones.",
+  legal: [
+    {
+      id: "politica-reembolso",
+      title: "Política de reembolso",
+      text: "Tienes 7 días completos desde la fecha de compra para solicitar la devolución de tu dinero. Si el recetario no cumplió tus expectativas, escríbenos a través del área de soporte de tu compra en Hotmart y te devolvemos el 100% de lo pagado, sin necesidad de justificar el motivo.",
+    },
+    {
+      id: "contacto",
+      title: "Contacto",
+      text: "Este recetario se vende a través de Hotmart, la plataforma que procesa tu pago y protege tu compra. Si tienes dudas sobre tu pedido, el acceso al material o quieres solicitar un reembolso, puedes hacerlo directamente desde el área de compras de tu cuenta de Hotmart, disponible las 24 horas.",
+    },
+    {
+      id: "terminos-de-uso",
+      title: "Términos de uso",
+      text: 'Al comprar 160 Recetas Fit obtienes una licencia de uso personal del PDF: puedes descargarlo, guardarlo e imprimirlo para tu propio consumo. No está permitido revender, redistribuir ni compartir públicamente el archivo. El contenido tiene fines informativos y educativos, no sustituye la orientación de un profesional de la salud, y los valores nutricionales son estimaciones.',
+    },
+  ],
 };
 
 const MOBILE_BAR = {
@@ -810,6 +827,15 @@ function Footer() {
         <div className="md:text-right">
           <p>{FOOTER.copyright}</p>
         </div>
+      </div>
+
+      <div className="max-w-content mx-auto px-6 mt-10 pt-10 border-t border-white/10 grid md:grid-cols-3 gap-8">
+        {FOOTER.legal.map((block) => (
+          <div key={block.id} id={block.id} className="scroll-mt-10">
+            <h3 className="text-white font-semibold text-sm mb-2">{block.title}</h3>
+            <p className="text-xs leading-relaxed">{block.text}</p>
+          </div>
+        ))}
       </div>
 
       <p className="max-w-content mx-auto px-6 text-center text-xs text-white/50 mt-10">
