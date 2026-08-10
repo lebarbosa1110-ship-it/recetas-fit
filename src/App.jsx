@@ -20,9 +20,15 @@ import {
 // ---------------------------------------------------------------------------
 const HOTMART_URL = "https://pay.hotmart.com/K107068380B";
 
+// Origen de tráfico opcional, ej. https://tu-sitio.com/?ref=instagram
+// Se agrega al sck para saber si la venta vino de una red social específica.
+const TRAFFIC_SOURCE =
+  typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("ref") : null;
+
 function buildCheckoutUrl(sck) {
+  const finalSck = TRAFFIC_SOURCE ? `${sck}-${TRAFFIC_SOURCE}` : sck;
   const separator = HOTMART_URL.includes("?") ? "&" : "?";
-  return `${HOTMART_URL}${separator}sck=${sck}`;
+  return `${HOTMART_URL}${separator}sck=${finalSck}`;
 }
 
 // ---------------------------------------------------------------------------
