@@ -398,12 +398,19 @@ function Hero() {
           </div>
         </div>
 
-        <div className="w-full">
-          <img
-            src="/portada.png"
-            alt={HERO.imageAlt}
-            className="aspect-square w-full max-w-sm mx-auto object-cover rounded-card border border-border"
-          />
+        <div className="w-full flex justify-center">
+          <div className="relative w-full max-w-sm">
+            <div
+              className="absolute inset-x-6 bottom-1 h-8 bg-ink/15 blur-2xl rounded-full"
+              aria-hidden="true"
+            />
+            <div className="relative bg-ink rounded-[2rem] p-3 shadow-[0_30px_60px_-15px_rgba(15,23,42,0.35)] -rotate-2">
+              <div className="mx-auto mb-2 h-1.5 w-10 rounded-full bg-white/20" aria-hidden="true" />
+              <div className="aspect-square w-full overflow-hidden rounded-[1.25rem] bg-white">
+                <img src="/portada.png" alt={HERO.imageAlt} className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
