@@ -13,6 +13,8 @@ import {
   X,
   ShieldCheck,
   ChevronDown,
+  Lock,
+  CreditCard,
 } from "lucide-react";
 
 // ---------------------------------------------------------------------------
@@ -224,6 +226,11 @@ const OFFER = {
   ctaLabel: "Comprar ahora — $9,90",
   guarantee:
     "Garantía de 7 días. Si no es lo que esperabas, escríbenos y te devolvemos el 100% de tu dinero. Sin preguntas.",
+  trust: [
+    { icon: ShieldCheck, label: "Compra 100% segura" },
+    { icon: Lock, label: "Pago procesado por Hotmart" },
+    { icon: CreditCard, label: "Tarjeta de crédito y débito" },
+  ],
 };
 
 const FAQ = {
@@ -735,6 +742,15 @@ function Offer() {
                 </li>
               ))}
             </ul>
+
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 py-4 border-t border-b border-border mb-6 text-ink-soft text-xs">
+              {OFFER.trust.map((item) => (
+                <span key={item.label} className="flex items-center gap-1.5">
+                  <item.icon size={15} className="text-teal shrink-0" strokeWidth={1.75} />
+                  {item.label}
+                </span>
+              ))}
+            </div>
 
             <CheckoutLink
               sck="oferta"
